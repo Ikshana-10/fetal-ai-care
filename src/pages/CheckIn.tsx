@@ -31,12 +31,12 @@ export default function CheckIn() {
   const handleSubmit = async () => {
     if (!user) return;
     setSaving(true);
-    await supabase.from('checkin_logs').insert({
+    await supabase.from('checkin_logs').insert([{
       user_id: user.id,
       date: format(new Date(), 'yyyy-MM-dd'),
-      answers: answers as unknown as Record<string, unknown>,
+      answers: answers as unknown as import('@/integrations/supabase/types').Json,
       flagged,
-    });
+    }]);
     setSaving(false);
     setSubmitted(true);
     toast({ title: 'Check-in saved ✅' });
