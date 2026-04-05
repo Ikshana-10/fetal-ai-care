@@ -14,7 +14,8 @@ const firebaseConfig = {
     storageBucket: "fetal-ai-care.firebasestorage.app",
     messagingSenderId: "381571122943",
     appId: "1:381571122943:web:6d8c8116e82c22ddb22eca",
-    measurementId: "G-4MFBZP3LT9"
+    measurementId: "G-4MFBZP3LT9",
+    databaseURL: "https://fetal-ai-care-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
 // Initialize Firebase
