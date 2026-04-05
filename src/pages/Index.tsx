@@ -1,3 +1,5 @@
+import { ref, set } from "firebase/database";
+import { db } from "../firebase";  // adjust path if needed
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
@@ -10,6 +12,12 @@ import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 
 export default function Index() {
+  const writeData = () => {
+    set(ref(db, "test/1"), {
+      name: "hello",
+      time: new Date().toString()
+    });
+  };
   const { user } = useAuth();
   const navigate = useNavigate();
   const [profile, setProfile] = useState<{ due_date: string | null; name: string | null } | null>(null);
@@ -49,9 +57,18 @@ export default function Index() {
         {/* Greeting */}
         <div className="text-center">
           <h1 className="text-2xl font-bold text-foreground">
-            Hi{profile?.name ? `, ${profile.name}` : ''} 💕
+            Hi{profile?.name ? `, ${profile.name}` : ''}
           </h1>
           <p className="text-muted-foreground mt-1">Week {week} of your beautiful journey</p>
+        </div>
+        {/* Firebase Test Button */}
+        <div className="mt-4 text-center">
+          <Button
+            variant="default"
+            onClick={writeData}
+          >
+            Send Test Data
+          </Button>
         </div>
 
         {/* Baby Size Card */}

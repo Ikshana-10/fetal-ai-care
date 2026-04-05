@@ -25,7 +25,7 @@ Note: repo contains a `bun.lock` — maintainers may prefer Bun, but package.jso
 
 ## Project-specific conventions and gotchas
 - Aliases: imports use `@` → `src` (see `vite.config.ts`). Favor `@/` imports when editing across components.
-- Component tagging: `lovable-tagger` is enabled only in development via `vite.config.ts`. It may add dev-only markup/IDs — avoid relying on it in production code.
+- Component tagging: `-tagger` is enabled only in development via `vite.config.ts`. It may add dev-only markup/IDs — avoid relying on it in production code.
 - Supabase env vars: `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` are required at runtime. Example `.env.local` keys:
 
   VITE_SUPABASE_URL=https://xxxxx.supabase.co
